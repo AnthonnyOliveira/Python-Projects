@@ -1,0 +1,89 @@
+###No passo 2 (Estrutura Inicial), o script de criação do banco (`connection.py`) deve ser criado na pasta:  
+
+📂 `src/db/`  
+
+📌 Por que na pasta `db/`?  
+A pasta `db/` é dedicada à conexão e estrutura do banco de dados. Ela centraliza tudo o que envolve o banco, evitando que a lógica de conexão fique espalhada pelo projeto.  
+
+Isso segue o princípio da separação de responsabilidades, tornando o código mais organizado e fácil de manter.
+
+---
+
+📌 Arquivo principal que você criará  
+1️⃣ `connection.py` → Responsável por conectar ao SQLite e garantir que as tabelas sejam criadas corretamente.
+
+---
+📌 **Como esse arquivo será usado?
+- Toda vez que o sistema for iniciado, o `connection.py` criará o banco e as tabelas (caso ainda não existam).  
+- Outros arquivos (como os modelos em `models/`) usarão `connection.py` para acessar o banco de dados.  
+
+---
+📌 Resumo  
+✅ Criamos `connection.py` na pasta `db/` para centralizar a conexão com o banco.  
+✅ Isso separa a parte estrutural (banco de dados)** da parte lógica (services) e interface (CLI).  
+✅ Facilita a manutenção e evita código repetitivo.  
+
+Agora você pode criar o `connection.py` e garantir que o banco seja criado corretamente! 🚀
+
+###No passo 3 (Modelos - Camada de Dados), os arquivos devem ser criados na pasta:
+📂 app/models/
+
+📌 Por que na pasta models/?
+A pasta models/ é responsável por armazenar a estrutura dos dados, ou seja, as representações das tabelas do banco. Como estamos usando SQLite, cada modelo representa uma tabela no banco de dados.
+
+Isso segue a arquitetura MVC (Model-View-Controller), onde:
+✅ Model: Define os dados (Exemplo: Aluno, Registro)
+✅ View: Interface do usuário (No nosso caso, a CLI em cli/menu.py)
+✅ Controller: Lógica de negócios (Nosso services/)
+
+📌 Arquivos que você criará nessa pasta
+1️⃣ aluno.py → Representação da tabela aluno
+2️⃣ registro.py → Representação da tabela registro
+
+Eles servirão para facilitar o acesso ao banco, criando funções para buscar, inserir e modificar dados.
+
+📌 Resumo
+Criamos os modelos na pasta models/ para organizar o código.
+Isso separa dados (modelos) da lógica (services) e da interface (CLI).
+Seguir essa estrutura facilita a manutenção do projeto no futuro.
+
+## Passo 3: Modelos (Camada de Dados) - Organizando os Dados da Academia
+ o foco foi definir a estrutura dos dados que serão armazenados no banco de dados, utilizando modelos (classes) para representar as tabelas. Essa abordagem facilita a manipulação dos dados no código e promove uma organização mais eficiente da informação.
+
+**O que foi feito?**
+
+Foram criados dois modelos principais:
+
+* **Aluno**: Representa os alunos da academia, contendo informações como nome, dias de frequência e horário previsto.
+* **Registro**: Representa os registros de entrada e saída dos alunos, incluindo data e hora.
+
+**Por que criar modelos?**
+
+* **Espelho das Tabelas**: Os modelos servem como uma representação direta das tabelas do banco de dados, facilitando a compreensão e a manipulação dos dados.
+* **Manipulação Simplificada**: Permitem manipular os dados no código de forma mais intuitiva, em vez de lidar diretamente com comandos SQL complexos.
+* **Organização Aprimorada**: Contribuem para uma organização mais clara e estruturada das informações no código.
+
+**O que cada modelo contém?**
+
+* **Aluno**:
+    * `id`: Identificador único do aluno.
+    * `nome`: Nome completo do aluno.
+    * `dias_frequencia`: Dias da semana em que o aluno frequenta a academia.
+    * `horario_previsto`: Horário esperado de chegada do aluno.
+* **Registro**:
+    * `id`: Identificador único do registro de entrada/saída.
+    * `aluno_id`: Identificador do aluno ao qual o registro pertence.
+    * `entrada`: Data e hora da entrada do aluno.
+    * `saida`: Data e hora da saída do aluno.
+
+**Conexão com o banco de dados**
+
+Os modelos simplificam a interação com o banco de dados SQLite. Em vez de escrever comandos SQL complexos, é possível criar objetos Python e manipular os dados de forma mais eficiente.
+
+**Vantagens de usar classes para os modelos**
+
+* **Agrupamento de informações e métodos**: Classes permitem armazenar dados e funcionalidades relacionadas em um único local, facilitando a organização e o reúso de código.
+* **Criação facilitada de múltiplos objetos**: Com classes, é possível criar diversos objetos (alunos e registros) sem precisar repetir código, tornando o processo mais eficiente.
+* **Comunicação simplificada com o banco de dados**: Classes permitem criar métodos personalizados para interagir com o banco de dados, simplificando as operações de salvar, buscar e atualizar dados.
+
+Em resumo, o uso de modelos (classes) no Passo 3 otimiza a organização e a manipulação dos dados da academia, facilitando o desenvolvimento e a manutenção do sistema.
