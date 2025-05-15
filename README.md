@@ -47,14 +47,14 @@ academia/
 - [x] Validar se o aluno já possui entrada sem saída
 
 ### 🔹 5. Relatórios
-- [ ] Calcular tempo total de permanência por aluno
-- [ ] Calcular média de tempo por aluno
-- [ ] Calcular média geral de permanência
-- [ ] Exibir discrepância entre horário previsto e real
+- [x] Calcular tempo total de permanência por aluno
+- [x] Calcular média de tempo por aluno
+- [x] Calcular média geral de permanência
+- [x] Exibir discrepância entre horário previsto e real
 
 ### 🔹 6. Interface CLI (Terminal)
-- [ ] Criar menu principal (`menu.py`)
-- [ ] Opções:
+- [x] Criar menu principal (`menu.py`)
+  Opções:
   - [ ] Cadastrar aluno
   - [ ] Registrar entrada
   - [ ] Registrar saída
